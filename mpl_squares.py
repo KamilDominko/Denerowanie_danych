@@ -1,8 +1,13 @@
+"""Wyświetlenie prostego wykresu kwadratów liczb 1, 2, 3, 4 i 5."""
+
 import matplotlib.pyplot as plt
 
+input_values = [1, 2, 3, 4, 5]
 squares = [1, 4, 9, 16, 25]
+
+plt.style.use('classic')
 fig, ax = plt.subplots()
-ax.plot(squares, linewidth=3)
+ax.plot(input_values, squares, linewidth=3)
 
 # Zdefiniowanie tytułu wykresu i etykiety osi.
 ax.set_title("Kwadrat liczb", fontsize=24)
