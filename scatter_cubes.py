@@ -1,3 +1,6 @@
+"""Automatycznie generuje ogromną ilość sześcianów liczb i na ich podstawie
+tworzy wykres oraz zapisuje go do pliku PNG."""
+
 import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
 

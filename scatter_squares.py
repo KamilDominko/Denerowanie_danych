@@ -1,3 +1,6 @@
+"""Tworzy wykres na podstawie kwadratów liczb 1,2,3,4,5 i zapisuje go do
+pliku PNG."""
+
 import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
 
