@@ -1,3 +1,5 @@
 .idea/
 __pycache__/
 temp.py
+squares_plot.png
+cubes_plot.png
