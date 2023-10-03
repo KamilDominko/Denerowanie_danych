@@ -13,6 +13,7 @@ class RandomWalk():
         self.y_values = [0]
 
     def get_step(self):
+        """Generuje kierunek oraz dystans, w jakim podąża błądzenie losowe"""
         direction = choice([1, -1])
         distance = choice([0, 1, 2, 3, 4])
         return direction * distance
