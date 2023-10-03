@@ -1,8 +1,8 @@
 .idea/
 __pycache__/
 temp.py
-squares_plot.png
-cubes_plot.png
-d6.html
-d6_d6.html
-d6_d10.html
+r1/squares_plot.png
+r1/cubes_plot.png
+r1/dice/d6.html
+r1/dice/d6_d6.html
+r1/dice/d6_d10.html

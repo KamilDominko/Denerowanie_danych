@@ -3,7 +3,7 @@ kropli wody. """
 
 import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
-from random_walk import RandomWalk
+from r1.random_walk.random_walk import RandomWalk
 
 ax: Axes
 
