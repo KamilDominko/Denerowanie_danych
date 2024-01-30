@@ -1,27 +1,25 @@
 import json
 
-from plotly.graph_objs import Scattergeo, Layout
+from plotly.graph_objs import Layout
 from plotly import offline
 
 # Analiza struktury danych
-filename = 'data/eq_data_30_day_m1.json'
-with open(filename) as f:
+filename = 'data/all_month.json'
+with open(filename, encoding="utf8") as f:
     all_eq_data = json.load(f)
 all_eq_dicts = all_eq_data['features']
+title = all_eq_data['metadata']['title']
 
 mags, lons, lats, hover_texts = [], [], [], []
 for eq_dict in all_eq_dicts:
     mag = eq_dict['properties']['mag']
-    lon = eq_dict['geometry']['coordinates'][0]
-    lat = eq_dict['geometry']['coordinates'][1]
-    title = eq_dict['properties']['title']
-    mags.append(mag)
-    lons.append(lon)
-    lats.append(lat)
-    hover_texts.append(title)
+    if mag >= 0:
+        mags.append(mag)
+        lons.append(eq_dict['geometry']['coordinates'][0])
+        lats.append(eq_dict['geometry']['coordinates'][1])
+        hover_texts.append(eq_dict['properties']['title'])
 
 # Mapa trzęsień Ziemi.
-# data = [Scattergeo(lon=lons, lat=lats)]
 data = [{'type': 'scattergeo',
          'lon': lons,
          'lat': lats,
@@ -32,7 +30,7 @@ data = [{'type': 'scattergeo',
                     'reversescale': True,
                     'colorbar': {'title': 'Siła'}}}]
 
-my_layout = Layout(title='Trzęsienia Ziemi na świecie')
+my_layout = Layout(title=title)
 
 fig = {'data': data, 'layout': my_layout}
 offline.plot(fig, filename='global_earthquakes.html')
