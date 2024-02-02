@@ -17,11 +17,15 @@ for submission_id in submission_ids[:30]:
     response_dict = r.json()
 
     # Utworzenie słownika dla każdego artykułu.
-    submission_dict = {
-        'title': response_dict['title'],
-        'hn_link': f"http://news.ycombinator.com/item?id={submission_id}",
-        'comments': response_dict['descendants']}
-    submission_dicts.append(submission_dict)
+    try:
+        submission_dict = {
+            'title': response_dict['title'],
+            'hn_link': f"http://news.ycombinator.com/item?id={submission_id}",
+            'comments': response_dict['descendants']}
+    except KeyError:
+        print(f"KeyError\tid: {submission_id}")
+    else:
+        submission_dicts.append(submission_dict)
 
 submission_dicts = sorted(submission_dicts, key=itemgetter('comments'),
                           reverse=True)
